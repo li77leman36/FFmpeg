@@ -1,14 +1,18 @@
 # Merge API (ffmpeg)
 
-A tiny API that takes a `videoUrl` and `audioUrl`, runs ffmpeg to merge them, and returns an MP4.
+Deploy anywhere (Railway/Render/Fly).
 
-## Deploy on Railway
-1. Create a new GitHub repo and upload these files.
-2. Go to [Railway](https://railway.app/), create a new project, and link your repo.
-3. Click "Deploy".
-4. Your API will be live at `https://<your-app>.up.railway.app/merge`.
-
-## Example cURL
+## Run locally
 ```bash
-curl -X POST https://<your-app>.up.railway.app/merge   -F "videoUrl=https://example.com/video.mp4"   -F "audioUrl=https://example.com/audio.mp3"   --output merged.mp4
+npm install
+npm start
+# listens on PORT env or 3000
 ```
+
+## POST /merge
+Form-Data:
+- videoUrl: https URL to MP4
+- audioUrl: https URL to MP3/M4A
+- startAt (optional): seconds (e.g. 0.5)
+
+Returns: merged MP4.

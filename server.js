@@ -10,6 +10,11 @@ import ffmpegPath from "ffmpeg-static";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// Health check
+app.get("/", (_req, res) => res.send("OK"));
+
 const upload = multer({ dest: tmpdir() });
 
 async function download(url, outPath) {
@@ -60,4 +65,5 @@ app.post("/merge", upload.none(), async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 3000, () => console.log("Merge API up"));
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log("Merge API up on port", port));
