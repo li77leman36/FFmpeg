@@ -1,6 +1,6 @@
 {
-  "name": "merge-api",
-  "version": "1.0.1",
+  "name": "merge-api-merge-concat",
+  "version": "1.2.0",
   "type": "module",
   "main": "server.js",
   "scripts": {
